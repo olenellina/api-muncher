@@ -1,2 +1,14 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<h1>Recipe Results:</h1>
+
+<ul class="row small-up-2 medium-up-3 large-up-5" data-equalizer >
+    <% @my_results.length.times do |x|  %>
+  <li class="column recipe" data-equalizer-watch>
+    <h5><%= @my_results[x].lable %></h5>
+    <%= image_tag(@my_results[x].image, :alt => "recipe image") %>
+    <!-- ToDo: need to search by URL, not lable as lable is not unique  -->
+
+  </li>
+  <% end %>
+</ul>
+
+<%= button_to 'New Search', root_path, method: :get %>
