@@ -2,7 +2,8 @@ require "#{Rails.root}/lib/edamam_api_wrapper"
 
 class RecipesController < ApplicationController
   def index
-    @my_query = Recipe.where(query: params["query"])
+    # @my_query = Recipe.where(query: params["query"])
+    @my_query = Recipe.where(query: params["query"]).page(params[:page]).per(10)
     return @my_query
   end
 

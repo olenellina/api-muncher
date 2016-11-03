@@ -4,6 +4,7 @@ gem 'awesome_print'
 gem 'jquery-turbolinks'
 gem 'httparty'
 gem 'foundation-rails'
+gem 'kaminari'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'

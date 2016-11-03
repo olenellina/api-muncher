@@ -10,7 +10,7 @@ class Edamam_Api_Wrapper
     my_recipes = []
     recipe_hash = {}
     # Adding CGI::escape to santize user search input
-    url = BASE_URL + "&app_id=#{ID}" + "&app_key=#{TOKEN}" + "&q=#{CGI::escape(query)}" + "&from=#{0}" + "&to=#{10}"
+    url = BASE_URL + "&app_id=#{ID}" + "&app_key=#{TOKEN}" + "&q=#{CGI::escape(query)}" + "&from=#{0}" + "&to=#{100}"
 
     response = HTTParty.get(url)
 
