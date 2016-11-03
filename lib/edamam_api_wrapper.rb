@@ -21,7 +21,8 @@ class Edamam_Api_Wrapper
       ingredients = response["hits"][x]["recipe"]["ingredientLines"]
       diet = response["hits"][x]["recipe"]["dietLabels"]
       health = response["hits"][x]["recipe"]["healthLabels"]
-      my_recipes << Recipe.build(lable, image, url, ingredients, diet, health)
+      query = response["q"]
+      my_recipes << Recipe.build(lable, image, url, ingredients, diet, health, query)
     end
     return my_recipes
   end

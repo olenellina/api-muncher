@@ -1,12 +1,14 @@
 <h1>Recipe Results:</h1>
 
 <ul class="row small-up-2 medium-up-3 large-up-5" data-equalizer >
-    <% @my_results.length.times do |x|  %>
+    <% @my_query.length.times do |x|  %>
   <li class="column recipe" data-equalizer-watch>
-    <h5><%= @my_results[x].lable %></h5>
-    <%= image_tag(@my_results[x].image, :alt => "recipe image") %>
+    <h5><%= @my_query[x].lable %></h5>
+    <%= image_tag(@my_query[x].image, :alt => "recipe image") %>
+    <p><%= @my_query[x].image %></p>
+    <h5><%= @my_query[x].diet %></h5>
     <!-- ToDo: need to search by URL, not lable as lable is not unique  -->
-
+    <%= link_to "Full Recipe Details", recipe_show_path(@my_query[x].lable) %>
   </li>
   <% end %>
 </ul>

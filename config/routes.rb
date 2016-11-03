@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # get 'recipes/index'
+  get 'recipes/index/:query' => 'recipes#index', as: 'recipe_index'
   #
   # get 'recipes/show'
   #
