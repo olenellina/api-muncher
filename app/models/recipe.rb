@@ -1,16 +1,16 @@
 class Recipe < ActiveRecord::Base
-  attr_reader :label, :image, :url, :ingredients, :diet, :health
 
-  def self.build(lable, image, url, ingredients, diet, health, query)
+  def self.build(recipe_hash)
     recipe = Recipe.new
-    recipe.lable = lable
-    recipe.image = image
-    recipe.url = url
-    recipe.ingredients = ingredients
-    recipe.diet = diet
-    recipe.health = health
-    recipe.query = query
-
+    recipe.image = recipe_hash[:image].to_s
+    recipe.lable = recipe_hash[:lable].to_s
+    recipe.url = recipe_hash[:url].to_s
+    recipe.ingredients = recipe_hash[:ingredients].to_s
+    recipe.diet = recipe_hash[:diet].to_s
+    recipe.health = recipe_hash[:health].to_s
+    recipe.query = recipe_hash[:query].to_s
     recipe.save
+
+    return recipe
   end
 end

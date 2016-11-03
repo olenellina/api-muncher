@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get 'recipes/search' => 'recipes#search', as: 'recipe_search'
 
-  get 'recipes/show/:lable' => 'recipes#show', as: 'recipe_show'
+  get 'recipes/show/:id' => 'recipes#show', as: 'recipe_show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
