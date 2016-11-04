@@ -7,13 +7,14 @@
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
     <%= stylesheet_link_tag    "application" %>
+    <link href="https://fonts.googleapis.com/css?family=Playball" rel="stylesheet">
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
     <header>
-      <h2><%= link_to 'Recipe Search', root_path, method: :get, class: 'search-button'%></h2>
+      <h1><%= link_to 'Recipe Search', root_path, method: :get, class: 'search-button'%></h1>
     </header>
 
     <%= yield %>
