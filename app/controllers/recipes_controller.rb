@@ -16,13 +16,9 @@ class RecipesController < ApplicationController
 
   def search
     flash[:notice] = nil
-    if params["query"] != nil && params["query"] != ""
-      if Recipe.find_by(query: params["query"]) == nil
+    if params["query"] != nil
         @my_results = Edamam_Api_Wrapper.get_recipes(params["query"])
-      end
-      if @my_results != []
         redirect_to recipe_index_path(params["query"])
-      end
     end
   end
 end

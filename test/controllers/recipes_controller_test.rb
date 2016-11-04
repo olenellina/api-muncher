@@ -1,5 +1,17 @@
 require 'test_helper'
 
+# def search
+# 1    flash[:notice] = nil
+# 1    if params["query"] != nil && params["query"] != ""
+#       if Recipe.find_by(query: params["query"]) == nil
+#         @my_results = Edamam_Api_Wrapper.get_recipes(params["query"])
+#       end
+#       if @my_results != []
+#         redirect_to recipe_index_path(params["query"])
+#       end
+#     end
+#   end
+
 class RecipesControllerTest < ActionController::TestCase
   test "should get index for a valid query" do
     get :index, {query: "tacos"}
