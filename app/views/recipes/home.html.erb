@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+<p><%= flash[:notice] %></p>
+<% end %>
+
 <h3>Welcome:</h3>
 
 <%= form_tag recipe_search_path, method: "get" do %>

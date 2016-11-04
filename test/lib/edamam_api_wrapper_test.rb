@@ -7,12 +7,6 @@ class Edamam_Api_WrapperTest < ActionController::TestCase
     assert true
   end
 
-  # If the cassette is called something different in another test block, another
-  # API call will be made to setup that new cassette.
-  # Otherwise, any tests in this block will reuse the data stored in the channels
-  # cassette for any subsquent assertions.
-  # This is recording the response of the method get_recipes.
-  # The cassette will be overwritten if you change the method and/or URI
   test "can retrieve a list of recipes for a new query" do
     VCR.use_cassette("recipes") do
       assert_difference('Recipe.count', 100) do
@@ -29,7 +23,7 @@ class Edamam_Api_WrapperTest < ActionController::TestCase
         end
       end
     end
-    
+
    test "a query that contains bad characters will be escaped" do
      VCR.use_cassette("bad-query-characters") do
        Edamam_Api_Wrapper.get_recipes("burgers! and tacos!")
@@ -37,5 +31,13 @@ class Edamam_Api_WrapperTest < ActionController::TestCase
        assert search.empty?, false
       end
    end
+
+   test "a query that does not result in any hits will not add records to the database" do
+     VCR.use_cassette("no-query-results") do
+       search = Edamam_Api_Wrapper.get_recipes("2039840q88")
+       assert_empty search
+      end
+   end
+
 
 end
