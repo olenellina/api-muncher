@@ -20,30 +20,30 @@
    list-style-type: none;
  }
 
+ .recipe, .button, #nav-buttons, header {
+   text-align: center;
+ }
+
 .recipe {
   border: 1px solid gray;
-  text-align: center;
 }
 
 body {
   margin: 2%;
 }
 
+.button, .button:hover {
+  background-color: white;
+}
+
 .button {
   display: inline-block;
-  background-color: white;
-  text-align: center;
-}
-
-.button:hover {
-  background-color: white;
-}
-
-#nav-buttons {
-  text-align: center;
 }
 
 header {
-  text-align: center;
   border-bottom: 1px solid black;
+}
+
+header, footer {
+  margin-bottom: 1%;
 }

@@ -1,6 +1,6 @@
 <ul class="row large-up-12" >
   <li class="column">
-    <h1><%= @my_recipe.lable %></h1>
+    <h3><%= @my_recipe.lable %></h3>
     <%= image_tag(@my_recipe.image, :alt => "recipe image") %>
     <p><%= link_to "Link to Original Recipe", @my_recipe.url  %></p>
     <p>Ingredients: <%= @my_recipe.ingredients %></p>

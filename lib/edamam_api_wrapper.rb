@@ -15,7 +15,7 @@ class Edamam_Api_Wrapper
     response = HTTParty.get(url)
 
     response["hits"].length.times do |x|
-      recipe_hash = {image: response["hits"][x]["recipe"]["image"],lable: response["hits"][x]["recipe"]["label"], url: response["hits"][x]["recipe"]["url"], ingredients: response["hits"][x]["recipe"]["ingredientLines"], diet: response["hits"][x]["recipe"]["dietLabels"], health: response["hits"][x]["recipe"]["healthLabels"], query: response["q"]}
+      recipe_hash = {image: response["hits"][x]["recipe"]["image"],lable: response["hits"][x]["recipe"]["label"], url: response["hits"][x]["recipe"]["url"], ingredients: response["hits"][x]["recipe"]["ingredientLines"].join(", "), diet: response["hits"][x]["recipe"]["dietLabels"].join(", "), health: response["hits"][x]["recipe"]["healthLabels"].join(", "), query: response["q"]}
       my_recipes << Recipe.build(recipe_hash)
     end
     return my_recipes

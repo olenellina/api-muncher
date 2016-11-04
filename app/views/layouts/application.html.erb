@@ -13,10 +13,14 @@
 
   <body>
     <header>
-      <h1><%= link_to 'Recipe Search', root_path, method: :get, class: 'search-button'%></h1>
+      <h2><%= link_to 'Recipe Search', root_path, method: :get, class: 'search-button'%></h2>
     </header>
 
     <%= yield %>
+
+    <footer>
+      <%=link_to image_tag("logo.png"), "https://www.edamam.com/", :alt => "Edamam Logo" %>
+    </footer>
 
   </body>
 </html>
