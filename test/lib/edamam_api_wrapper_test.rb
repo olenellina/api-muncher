@@ -11,7 +11,7 @@ class Edamam_Api_WrapperTest < ActionController::TestCase
   # API call will be made to setup that new cassette.
   # Otherwise, any tests in this block will reuse the data stored in the channels
   # cassette for any subsquent assertions.
-  # This is recording the response of the method listchannels.
+  # This is recording the response of the method get_recipes.
   # The cassette will be overwritten if you change the method and/or URI
   test "can retrieve a list of recipes for a new query" do
     VCR.use_cassette("recipes") do
@@ -29,44 +29,13 @@ class Edamam_Api_WrapperTest < ActionController::TestCase
         end
       end
     end
+    
+   test "a query that contains bad characters will be escaped" do
+     VCR.use_cassette("bad-query-characters") do
+       Edamam_Api_Wrapper.get_recipes("burgers! and tacos!")
+       search = Recipe.where(query: "burgers%21+and+tacos%21")
+       assert search.empty?, false
+      end
+   end
 
-  test "a user will be told if their query did not produce any results via a flash notice" do
-    VCR.use_cassette("no-results") do
-      Edamam_Api_Wrapper.get_recipes("89v90832l")
-      assert_equal flash[:notice], "Your search failed to return results. Please try again"
-    end
-  end
-end #THE END!!!!!
-  # #
-  # test "sending a message to a channel that does not exist will not work" do
-  #   VCR.use_cassette("send-msg-bad-channel") do
-  #     response = Edamam_Api_Wrapper.sendmsg("no-channel", ":bananadance:")
-  #     assert response["ok"] == false
-  #     assert response["error"] == "channel_not_found"
-  #   end
-  # end
-  #
-  # test "sending a message to a channel without text will not work" do
-  #   VCR.use_cassette("send-no-msg") do
-  #     response = Edamam_Api_Wrapper.sendmsg("test-api-parens", "")
-  #     assert response["ok"] == false
-  #     assert response["error"] == "no_text"
-  #     response = Edamam_Api_Wrapper.sendmsg("test-api-parens", nil)
-  #     assert response["ok"] == false
-  #     assert response["error"] == "no_text"
-  #   end
-  # end
-  #
-  # test "sending a message with a bad token fails" do
-  #   VCR.use_cassette("msg-bad-token") do
-  #     response = Edamam_Api_Wrapper.sendmsg("test-api-parens", "failed message", "12345")
-  #     assert response["ok"] == false
-  #     assert response["error"] == "invalid_auth"
-  #     response = Edamam_Api_Wrapper.sendmsg("test-api-parens", "failed message", "")
-  #     assert response["ok"] == false
-  #     assert response["error"] == "not_authed"
-  #   end
-  # end
-  #
-
-#the real end
+end

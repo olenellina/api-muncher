@@ -21,4 +21,6 @@ class RecipesControllerTest < ActionController::TestCase
     assert_equal flash[:notice], "Your search failed to return results. Please try again"
   end
 
+
+
 end
