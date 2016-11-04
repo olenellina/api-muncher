@@ -1,5 +1,5 @@
 require 'httparty'
-require 'uri'
+require "cgi"
 
 class Edamam_Api_Wrapper
   ID = ENV["ID"]
@@ -7,7 +7,6 @@ class Edamam_Api_Wrapper
   BASE_URL = "https://api.edamam.com/search?"
 
   def self.get_recipes(query)
-    my_recipes = []
     recipe_hash = {}
     # Adding CGI::escape to santize user search input
     url = BASE_URL + "&app_id=#{ID}" + "&app_key=#{TOKEN}" + "&q=#{CGI::escape(query)}" + "&from=#{0}" + "&to=#{100}"
@@ -16,9 +15,8 @@ class Edamam_Api_Wrapper
 
     response["hits"].length.times do |x|
       recipe_hash = {image: response["hits"][x]["recipe"]["image"],lable: response["hits"][x]["recipe"]["label"], url: response["hits"][x]["recipe"]["url"], ingredients: response["hits"][x]["recipe"]["ingredientLines"].join(", "), diet: response["hits"][x]["recipe"]["dietLabels"].join(", "), health: response["hits"][x]["recipe"]["healthLabels"].join(", "), query: response["q"]}
-      my_recipes << Recipe.build(recipe_hash)
+      Recipe.build(recipe_hash)
     end
-    return my_recipes
   end
 
 end
