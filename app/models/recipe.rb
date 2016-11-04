@@ -1,4 +1,9 @@
 class Recipe < ActiveRecord::Base
+  validates :lable, presence: true
+  validates :image, presence: true
+  validates :ingredients, presence: true
+  validates :url, presence: true, uniqueness: true
+  validates :query, presence: true
 
   def self.build(recipe_hash)
     recipe = Recipe.new

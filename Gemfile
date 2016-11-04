@@ -45,6 +45,7 @@ group :development, :test do
   gem 'minitest-reporters'
   gem 'minitest-vcr'
   gem 'webmock'
+  gem 'simplecov'
 end
 
 group :development do
