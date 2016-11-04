@@ -1,11 +1,11 @@
-<ul class="row large-up-12" >
+<ul class="row large-up-12 recipe-show" >
   <li class="column">
     <h3><%= @my_recipe.lable %></h3>
     <%= image_tag(@my_recipe.image, :alt => "recipe image") %>
     <p><%= link_to "Link to Original Recipe", @my_recipe.url  %></p>
-    <p>Ingredients: <%= @my_recipe.ingredients %></p>
-    <p>Diet: <%= @my_recipe.diet %></p>
-    <p>Health: <%= @my_recipe.health  %></p>
+    <p><div class="bold">Ingredients: </div><%= @my_recipe.ingredients %></p>
+    <p><div class="bold">Diet: </div><%= @my_recipe.diet %></p>
+    <p><div class="bold">Health: </div><%= @my_recipe.health  %></p>
   </li>
 
   <%= button_to 'New Search', root_path, method: :get %>

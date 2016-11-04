@@ -24,7 +24,7 @@
    text-align: center;
  }
 
-.recipe {
+.recipe, .recipe-show {
   border: 1px solid gray;
 }
 
@@ -46,4 +46,12 @@ header {
 
 header, footer {
   margin-bottom: 1%;
+}
+
+.recipe-show {
+  padding: 1%;
+}
+
+.bold {
+  font-weight: bold;
 }
