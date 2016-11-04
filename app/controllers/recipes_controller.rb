@@ -33,18 +33,3 @@ class RecipesController < ApplicationController
     end
   end
 end
-
-# def search
-#   if params["query"] != nil && params["query"] != ""
-#       Edamam_Api_Wrapper.get_recipes(params["query"])
-#       if Recipe.find_by(query: params["query"]) != nil
-#         redirect_to recipe_index_path(params["query"])
-#       else
-#         flash[:notice] = "Your search failed to return results. Please try again."
-#         redirect_to root_path
-#       end
-#   else
-#     flash[:notice] = "Please enter a valid search term."
-#     redirect_to root_path
-#   end
-# end
