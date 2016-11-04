@@ -28,3 +28,22 @@
 body {
   margin: 2%;
 }
+
+.button {
+  display: inline-block;
+  background-color: white;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: white;
+}
+
+#nav-buttons {
+  text-align: center;
+}
+
+header {
+  text-align: center;
+  border-bottom: 1px solid black;
+}

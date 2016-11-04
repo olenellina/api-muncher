@@ -1,7 +1,3 @@
-<%= paginate @my_query %>
-
-<h1>Recipe Results:</h1>
-
 <ul class="row small-up-2 medium-up-3 large-up-5" data-equalizer >
     <% @my_query.length.times do |x|  %>
   <li class="column recipe" data-equalizer-watch>
@@ -13,4 +9,6 @@
   <% end %>
 </ul>
 
-<%= button_to 'New Search', root_path, method: :get %>
+<div id="nav-buttons">
+  <%= paginate @my_query %>
+</div>
