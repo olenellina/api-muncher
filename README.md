@@ -1,3 +1,15 @@
+## Reflection:
+
+1. What do you understand better after doing this project?
+I definitely understand APIs much better after this project. I also feel like I understand Rails better as well. This is mostly because I decided to start the project over on Thursday, so I got extra practice in having to set the project up again :) Prior to Thursday, I was struggling to connect the Lib folder files with the Rails MVC model, so I decided to try and do the project utilizing a model to understand how they would work together. In retrospect, a model is not needed, so I'll probably spend some time this week reverting back to my previous version. Other than that, I finally got the Foundation grids to work on my recipe show page! So that was a great learning experience as well. 
+
+2. What do you want more practice with?
+I would like more practice with APIs - it's a critical concept and I'm excited to finally be learning about them. I'd also like more practice in learning and understanding how the Lib folder relates to the MVC framework. 
+
+3. What is something you saw done differently? 
+During the project, there was a lot of great conversation amongst the students regarding their approaches, so I think I was inspired by a lot of what I heard. In particular, some of the students setup their page loads to be a new API call each time. I want to try to implement that as well!
+
+
 # Recipe API Consumer
 
 ## Learning Goals:
